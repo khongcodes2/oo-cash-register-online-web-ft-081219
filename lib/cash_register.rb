@@ -9,16 +9,16 @@ class CashRegister
   end
   
   def add_item(title,price,quantity=1)
-    self.total+=price*quantity
-    self.last_item_data=[price,quantity]
-    quantity.times {self.items.push(title)}
+    @total+=price*quantity
+    @last_item_data=[price,quantity]
+    quantity.times {@items.push(title)}
   end
   
   def apply_discount
     if discount
-      self.total*=((100-discount)*0.01)
-      #might need to address the to_integer below
-      "After the discount, the total comes to $#{self.total.to_i}."
+      @total*=((100-discount)*0.01)
+      #might need to address the to_integer belowl
+      "After the discount, the total comes to $#{@total.to_i}."
     else
       "There is no discount to apply."
     end
